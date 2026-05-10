@@ -1,5 +1,8 @@
 package com.piseth.java.school.phoneshope_night.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,7 +47,11 @@ public class BrandController {
 		
 		@GetMapping
 		public ResponseEntity<?> getBrands(){
-			return ResponseEntity.ok(brandService.getBrands());
+			List<BrandDTO> list = brandService.getBrands()
+			.stream()
+			.map(brand -> BrandMapper.INSTANCE.toBrandDTO(brand))
+			.collect(Collectors.toList());
+			return ResponseEntity.ok(list);
 			//return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDTO(brand));
 		}
 		
