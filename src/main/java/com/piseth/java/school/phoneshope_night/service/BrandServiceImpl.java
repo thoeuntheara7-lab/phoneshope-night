@@ -1,5 +1,6 @@
 package com.piseth.java.school.phoneshope_night.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class BrandServiceImpl implements BrandService {
 		return brandRepository.save(brand);
 	}
 
-
+	@Override
+	public List<Brand> getBrands() {
+		return brandRepository.findAll();
+		
+	}
 
 }
