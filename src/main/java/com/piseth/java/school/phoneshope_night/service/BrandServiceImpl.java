@@ -43,4 +43,9 @@ public class BrandServiceImpl implements BrandService {
 		
 	}
 
+	@Override
+	public List<Brand> getBrands(String name) {
+		return brandRepository.findByName(name);
+	}
+
 }
