@@ -15,7 +15,11 @@ import com.piseth.java.school.phoneshope_night.service.util.PageUtil;
 import com.piseth.java.school.phoneshope_night.spec.BrandFilter;
 import com.piseth.java.school.phoneshope_night.spec.BrandSpec;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 @Service
+@AllArgsConstructor
 public class BrandServiceImpl implements BrandService {
 	@Autowired
 	private BrandRepository brandRepository;
